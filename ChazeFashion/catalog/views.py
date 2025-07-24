@@ -184,3 +184,16 @@ def add_to_wishlist(request, product_id):
     user_wishlist.products.add(product)
     messages.success(request, f'{product.pr_name} added to wishlist!')
     return redirect('product_detail', product_id=product_id)
+
+@login_required
+def checkout(request):
+    cart, created = Cart.objects.get_or_create(user=request.user)
+    cart_items = cart.items.select_related('product').all()
+    total = sum(item.product.pr_price * item.quantity for item in cart_items)
+    if request.method == 'POST':
+        # Here you would handle payment and order creation.
+        # For now, we'll just clear the cart and show a success message.
+        cart.items.all().delete()
+        messages.success(request, "Thank you for your purchase! Your order has been placed.")
+        return redirect('product_list')
+    return render(request, 'catalog/checkout.html', {'cart_items': cart_items, 'total': total})

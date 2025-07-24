@@ -3,20 +3,20 @@
 {% block title %}Sign Up - ChazeFashion{% endblock %}
 
 {% block content %}
-<div class="min-h-screen flex items-center justify-center bg-base-200">
-    <div class="card w-96 bg-base-100 shadow-xl">
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-emerald-50 via-sky-50 to-slate-100">
+    <div class="card w-full max-w-md bg-white shadow-2xl rounded-3xl border border-sky-100">
         <div class="card-body">
-            <h2 class="card-title text-2xl font-bold text-center mb-6">Create Account</h2>
+            <h2 class="card-title text-3xl font-extrabold text-center mb-6 text-emerald-900">Create Account</h2>
             
             <form method="post" class="space-y-4">
                 {% csrf_token %}
                 
                 <div class="form-control">
                     <label class="label">
-                        <span class="label-text">Username</span>
+                        <span class="label-text font-semibold text-sky-700">Username</span>
                     </label>
                     <input type="text" name="username" placeholder="Choose a username" 
-                           class="input input-bordered" required />
+                           class="input input-bordered bg-slate-50" required />
                     {% if form.username.errors %}
                         <label class="label">
                             <span class="label-text-alt text-error">{{ form.username.errors.0 }}</span>
@@ -26,10 +26,10 @@
                 
                 <div class="form-control">
                     <label class="label">
-                        <span class="label-text">Password</span>
+                        <span class="label-text font-semibold text-sky-700">Password</span>
                     </label>
                     <input type="password" name="password1" placeholder="Enter your password" 
-                           class="input input-bordered" required />
+                           class="input input-bordered bg-slate-50" required />
                     {% if form.password1.errors %}
                         <label class="label">
                             <span class="label-text-alt text-error">{{ form.password1.errors.0 }}</span>
@@ -39,10 +39,10 @@
                 
                 <div class="form-control">
                     <label class="label">
-                        <span class="label-text">Confirm Password</span>
+                        <span class="label-text font-semibold text-sky-700">Confirm Password</span>
                     </label>
                     <input type="password" name="password2" placeholder="Confirm your password" 
-                           class="input input-bordered" required />
+                           class="input input-bordered bg-slate-50" required />
                     {% if form.password2.errors %}
                         <label class="label">
                             <span class="label-text-alt text-error">{{ form.password2.errors.0 }}</span>
@@ -51,21 +51,21 @@
                 </div>
                 
                 <div class="form-control mt-6">
-                    <button type="submit" class="btn btn-primary">Create Account</button>
+                    <button type="submit" class="btn bg-emerald-500 hover:bg-emerald-600 text-white font-bold btn-lg border-0">Create Account</button>
                 </div>
             </form>
             
             <div class="divider">OR</div>
             
             <div class="text-center">
-                <p class="text-sm text-base-content opacity-70 mb-4">
+                <p class="text-sm text-slate-700 opacity-70 mb-4">
                     Already have an account?
                 </p>
-                <a href="{% url 'login' %}" class="btn btn-outline btn-wide">
+                <a href="{% url 'login' %}" class="btn bg-sky-400 hover:bg-sky-500 text-white btn-wide border-0">
                     Login
                 </a>
             </div>
         </div>
     </div>
 </div>
-{% endblock %} 
+{% endblock %}

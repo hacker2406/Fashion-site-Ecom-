@@ -3,46 +3,46 @@
 {% block title %}Login - ChazeFashion{% endblock %}
 
 {% block content %}
-<div class="min-h-screen flex items-center justify-center bg-base-200">
-    <div class="card w-96 bg-base-100 shadow-xl">
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-emerald-50 via-sky-50 to-slate-100">
+    <div class="card w-full max-w-md bg-white shadow-2xl rounded-3xl border border-sky-100">
         <div class="card-body">
-            <h2 class="card-title text-2xl font-bold text-center mb-6">Welcome Back</h2>
+            <h2 class="card-title text-3xl font-extrabold text-center mb-6 text-emerald-900">Welcome Back</h2>
             
             <form method="post" class="space-y-4">
                 {% csrf_token %}
                 
                 <div class="form-control">
                     <label class="label">
-                        <span class="label-text">Username</span>
+                        <span class="label-text font-semibold text-sky-700">Username</span>
                     </label>
                     <input type="text" name="username" placeholder="Enter your username" 
-                           class="input input-bordered" required />
+                           class="input input-bordered bg-slate-50" required />
                 </div>
                 
                 <div class="form-control">
                     <label class="label">
-                        <span class="label-text">Password</span>
+                        <span class="label-text font-semibold text-sky-700">Password</span>
                     </label>
                     <input type="password" name="password" placeholder="Enter your password" 
-                           class="input input-bordered" required />
+                           class="input input-bordered bg-slate-50" required />
                 </div>
                 
                 <div class="form-control mt-6">
-                    <button type="submit" class="btn btn-primary">Login</button>
+                    <button type="submit" class="btn bg-emerald-500 hover:bg-emerald-600 text-white font-bold btn-lg border-0">Login</button>
                 </div>
             </form>
             
             <div class="divider">OR</div>
             
             <div class="text-center">
-                <p class="text-sm text-base-content opacity-70 mb-4">
+                <p class="text-sm text-slate-700 opacity-70 mb-4">
                     Don't have an account?
                 </p>
-                <a href="{% url 'signup' %}" class="btn btn-outline btn-wide">
+                <a href="{% url 'signup' %}" class="btn bg-sky-400 hover:bg-sky-500 text-white btn-wide border-0">
                     Create Account
                 </a>
             </div>
         </div>
     </div>
 </div>
-{% endblock %} 
+{% endblock %}
